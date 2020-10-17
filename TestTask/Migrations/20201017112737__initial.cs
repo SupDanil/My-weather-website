@@ -54,33 +54,32 @@ namespace TestTask.Migrations
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[] { "1", "Josh", "Bush" });
+                values: new object[] { "1", "Josh", "12.10.19" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[] { "2", "Ivan", "Petrov" });
+                values: new object[] { "2", "Ivan", "30.11.20" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[]
-                { "3", "Vladimir", "Putin" });
+                values: new object[] { "3", "Vladimir", "14.01.19" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[] { "4", "Boris", "Obama" });
+                values: new object[] { "4", "Boris", "7.11.19" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[] { "5", "Oleg", "Merkel" });
+                values: new object[] { "5", "Oleg", "8.08.20" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CustomerName", "OrderDate" },
-                values: new object[] { "6", "Alexey", "Tramp" });
+                values: new object[] { "6", "Alexey", "16.11.19" });
 
             //Filling the table Devices with values
             migrationBuilder.InsertData(
