@@ -28,18 +28,15 @@ namespace TestTask.Controllers
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             string response;
-            using(StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
+            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
             {
                 response = streamReader.ReadToEnd();
             }
             WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(response);
             ViewBag.Name = weatherResponse.Name;
             ViewBag.Main = weatherResponse.Main.Temp;
-            return View(weatherResponse);
-
-            
+            return View();
         }
-
-        
     }
+       
 }
