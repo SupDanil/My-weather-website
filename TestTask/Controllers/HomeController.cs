@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using TestTask.Models;
 
 namespace TestTask.Controllers
@@ -21,7 +22,7 @@ namespace TestTask.Controllers
             _logger = logger;
         }
 
-        public async Task< IActionResult> Index()
+        public IActionResult Index()
         {
             string url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=820325f3e470649a5d09e482df8a8871";
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -29,9 +30,14 @@ namespace TestTask.Controllers
             string response;
             using(StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
             {
-                response = await streamReader.ReadToEndAsync();
+                response = streamReader.ReadToEnd();
             }
-            return View();
+            WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(response);
+            ViewBag.Name = weatherResponse.Name;
+            ViewBag.Main = weatherResponse.Main.Temp;
+            return View(weatherResponse);
+
+            
         }
 
         
