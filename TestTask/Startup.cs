@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using TestTask.Domain;
 using TestTask.Service;
 
+
 namespace TestTask
 {
     public class Startup
@@ -25,12 +26,6 @@ namespace TestTask
         
         public void ConfigureServices(IServiceCollection services)
         {
-            // Connect config from appsettingconfig.json
-            Configuration.Bind("Project", new Config());
-
-            // Подключаем контекст к БД
-            services.AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString));
-
             services.AddControllersWithViews();
         }
 
